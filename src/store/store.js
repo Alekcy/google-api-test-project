@@ -13,7 +13,15 @@ const StateProvider = ({ children }) => {
 			case SET_ADDRESS:
 				return {
 					...state,
-					addressStore: action.address
+					addressStore: {
+						...action.address,
+						addressComponents: action.address.address_components.reduce((obj, item) => {
+							return {
+								...obj,
+								[item.types[0]]: item,
+							};
+						}, {})
+					}
 				};
 			default:
 				throw new Error();

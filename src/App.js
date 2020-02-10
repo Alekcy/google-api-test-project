@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from '@material-ui/core';
-import { Search } from "./components";
+import { Search, AddressBlock } from "./components";
+import { store } from "./store/store";
 
 function App() {
-  return (
-    <Container fixed>
-      <Search />
-    </Container>
-  );
+    const globalState = useContext(store);
+    console.log(globalState.state.addressStore)
+    return (
+        <Container fixed>
+            <Search />
+            {globalState.state.addressStore && <AddressBlock/>}
+        </Container>
+    );
 }
 
 export default App;
