@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react';
-import { SET_ADDRESS } from './actionTypes';
+import { SET_ADDRESS, SET_COMPONENTS } from './actionTypes';
 
 const initialState = {
 	addressStore: null
@@ -21,6 +21,17 @@ const StateProvider = ({ children }) => {
 								[item.types[0]]: item.long_name,
 							};
 						}, {})
+					}
+				};
+			case SET_COMPONENTS:
+				return {
+					...state,
+					addressStore: {
+						...state.addressStore,
+						addressComponents: {
+							...state.addressComponents,
+							...action.addressComponents,
+						}
 					}
 				};
 			default:

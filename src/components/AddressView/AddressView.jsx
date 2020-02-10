@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { Box, Grid, Paper, Typography, Button } from '@material-ui/core';
+import { Box, Typography, Button } from '@material-ui/core';
 import { store } from "../../store/store";
 import { AddressViewListItem } from "./AddressViewListItem";
 

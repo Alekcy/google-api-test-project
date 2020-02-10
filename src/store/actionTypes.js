@@ -1,1 +1,2 @@
 export const SET_ADDRESS = 'SET_ADDRESS';
+export const SET_COMPONENTS = 'SET_COMPONENTS';

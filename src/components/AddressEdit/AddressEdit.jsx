@@ -3,6 +3,7 @@ import { Box, TextField, Grid, Button } from '@material-ui/core';
 import { useContext, useState, useEffect } from 'react';
 import { store } from "../../store/store";
 import { ErrorMessage } from "./ErrorMessage";
+import {SET_COMPONENTS} from "../../store/actionTypes";
 
 export const AddressEdit = ({ goToSuccess }) => {
 	const globalState = useContext(store);
@@ -30,6 +31,7 @@ export const AddressEdit = ({ goToSuccess }) => {
 	}, []);
 	const onSave = () => {
 		if (Object.values(components).filter(component => component === null || component === undefined).length === 0) {
+			globalState.dispatch({ type: SET_COMPONENTS, addressComponents: components });
 			goToSuccess();
 		} else {
 			setError('Fill in all the fields');
