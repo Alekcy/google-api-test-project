@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { Box, Grid, Paper, Typography } from '@material-ui/core';
+import { Box, Grid, Paper, Typography, Button } from '@material-ui/core';
 import { store } from "../../store/store";
 import { AddressViewListItem } from "./AddressViewListItem";
 
-export const AddressView = () => {
+export const AddressView = ({ goToEdit }) => {
 	const globalState = useContext(store);
 	const addressComponents = globalState.state.addressStore.addressComponents;
-	console.log(addressComponents)
 	return (
 		<Box>
 			<Typography variant="h5">
@@ -20,6 +19,9 @@ export const AddressView = () => {
 			<AddressViewListItem label="Street number" value={addressComponents.street_number} />
 			<AddressViewListItem label="Apartment #" value={addressComponents.subpremise} />
 			<AddressViewListItem label="Postal code" value={addressComponents.postal_code} />
+			<Button variant="contained" color="primary" onClick={goToEdit}>
+				Edit
+			</Button>
 		</Box>
 	)
 };

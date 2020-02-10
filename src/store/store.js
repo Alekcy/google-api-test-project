@@ -18,7 +18,7 @@ const StateProvider = ({ children }) => {
 						addressComponents: action.address.address_components.reduce((obj, item) => {
 							return {
 								...obj,
-								[item.types[0]]: item,
+								[item.types[0]]: item.long_name,
 							};
 						}, {})
 					}
